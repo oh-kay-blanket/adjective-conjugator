@@ -1,0 +1,58 @@
+@import url(http://fonts.googleapis.com/css?family=Montserrat:800|Roboto);
+
+html {
+  font-family: 'Roboto', Sans;
+  color: #222;
+}
+
+body {
+  background-color: #f8f8f8;
+}
+
+h1, h2 {
+  font-family: 'Montserrat';
+}
+
+h1 {
+  font-size: 2em;
+}
+
+input{
+  font-size: 1em;
+}
+
+.app-container {
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+  padding-left: 10vw;
+  max-width: 800px;
+}
+
+.adjective-input-area {
+  display: flex;
+  align-items: flex-end;
+}
+
+.adjective-input-area select {
+  margin-left: 10px
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.grid-box {
+  margin: 20px 0px 20px;
+  padding: 20px 20px;
+  background-color: #f8f8f8;
+  box-shadow: -5px -5px 10px rgba(204, 168, 167, 0.4);
+}
+
+.input-box {
+  background: none;
+  margin-right: 20px;
+  border: 0px;
+  border-bottom: 1px solid;
+}
