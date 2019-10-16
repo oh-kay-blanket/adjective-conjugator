@@ -41,38 +41,6 @@ class Grid extends React.Component {
   }
 }
 
-// Grid box component
-class GridBox extends React.Component {
-  render() {
-    return (
-      <div class='grid-box'>
-
-        <Content // Title
-          title={this.props.title}
-          content={this.props.content}
-        />
-
-        <ConversionMethod // Conversion Method
-          conversionMethod={this.props.conversionMethod}
-        />
-
-        <Example
-          example={this.props.example}
-        />
-      </div>
-    );
-  }
-}
-
-class Content extends React.Component {
-  render() {
-    return (
-      <h4>{this.props.title}: {this.props.content}</h4>
-    );
-  }
-}
-
-
 class Adjective extends React.Component {
   constructor(props) {
     super(props)
@@ -102,8 +70,8 @@ class Adjective extends React.Component {
 
   render() {
     return (
-      <div class='adjective-input-area'>
-        <p>
+      <div className='adjective-input-area'>
+        <div>
           <input
             class='input-box'
             type="text"
@@ -113,22 +81,56 @@ class Adjective extends React.Component {
             onChange={this.handleChange}
             autoFocus
           />
+        </div>
+        <div className='syllable-area'>
           Syllables:
           <select onChange={this.syllableChange}>
             <option value='1'>1</option>
             <option value='2'>2</option>
             <option value='3'>3+</option>
           </select>
-        </p>
+        </div>
       </div>
     );
   }
 }
 
+// Grid box component
+class GridBox extends React.Component {
+  render() {
+    return (
+      <div class='grid-box'>
+
+        <Content // Title
+          title={this.props.title}
+          content={this.props.content}
+        />
+
+        <ConversionMethod // Conversion Method
+          conversionMethod={this.props.conversionMethod}
+        />
+
+        <Example
+          example={this.props.example}
+        />
+      </div>
+    );
+  }
+}
+
+class Content extends React.Component {
+  render() {
+    return (
+      <p>{this.props.title}: <b>{this.props.content}</b></p>
+    );
+  }
+}
+
+
 class ConversionMethod extends React.Component {
   render() {
     return (
-      <p><b>Method:</b> {this.props.conversionMethod}</p>
+      <p>Method: {this.props.conversionMethod}</p>
     );
   }
 }
@@ -136,7 +138,7 @@ class ConversionMethod extends React.Component {
 class Example extends React.Component {
   render() {
     return (
-      <p><b>Example:</b> {this.props.example}</p>
+      <p>Example: {this.props.example}</p>
     );
   }
 }

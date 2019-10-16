@@ -1,7 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Montserrat:800|Roboto);
 
 html {
-  font-family: 'Roboto', Sans;
+  font-family: 'Roboto', sans-serif;
   color: #222;
 }
 
@@ -10,30 +10,52 @@ body {
 }
 
 h1, h2 {
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', sans-serif;
 }
 
-h1 {
-  font-size: 2em;
+
+@media only screen and (min-width: 900px) {
+  h1 {
+    font-size: 2em;
+  }
 }
+
 
 input{
   font-size: 1em;
 }
 
 .app-container {
-  padding-top: 10vh;
-  padding-bottom: 10vh;
-  padding-left: 10vw;
-  max-width: 800px;
+  padding: 0px 5vw;
+}
+
+@media only screen and (min-width: 900px) {
+  .app-container {
+    padding: 10vh 15vw;
+    max-width: 900px;
+  }
 }
 
 .adjective-input-area {
   display: flex;
-  align-items: flex-end;
+  flex-wrap: wrap;
 }
 
-.adjective-input-area select {
+.input-box {
+  background: none;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  border: 0px;
+  border-bottom: 1px solid;
+}
+
+.syllable-area {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: baseline;
+}
+
+.syllable-area select {
   margin-left: 10px
 }
 
@@ -47,12 +69,5 @@ input{
   margin: 20px 0px 20px;
   padding: 20px 20px;
   background-color: #f8f8f8;
-  box-shadow: -5px -5px 10px rgba(204, 168, 167, 0.4);
-}
-
-.input-box {
-  background: none;
-  margin-right: 20px;
-  border: 0px;
-  border-bottom: 1px solid;
+  box-shadow: -5px -5px 15px rgba(204, 180, 180, 0.4);
 }
