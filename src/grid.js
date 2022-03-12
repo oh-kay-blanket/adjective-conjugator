@@ -138,7 +138,7 @@ class ConversionMethod extends React.Component {
 class Example extends React.Component {
   render() {
     return (
-      <p>Example: {this.props.example}</p>
+      <p className="example">{this.props.example}</p>
     );
   }
 }

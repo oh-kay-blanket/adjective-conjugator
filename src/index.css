@@ -69,5 +69,17 @@ input{
   margin: 20px 0px 20px;
   padding: 20px 20px;
   background-color: #f8f8f8;
-  box-shadow: -5px -5px 15px rgba(204, 180, 180, 0.4);
+  /* box-shadow: -5px -5px 15px rgba(204, 180, 180, 0.4); */
+  border: 2px solid #000;
+  border-radius: 10px;
+  box-shadow: 1px 1px 0 #000, 2px 2px 0 #000, 3px 3px 0 #000;
+}
+
+.example {
+  font-style: italic;
+  color: #666;
+}
+
+.example-word {
+  text-decoration: underline;
 }

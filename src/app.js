@@ -50,9 +50,9 @@ class App extends Component {
       // check for exceptions
       for(var i in Exceptions) {
         if (value === Exceptions[i].adjective) {
-          adverbExample = 'Harold ate the jello ' + Exceptions[i].adverb + '.';
-          comparativeExample = 'Staci is way ' + Exceptions[i].comparative + ' than Tiffani.';
-          superlativeExample = 'It was the ' + Exceptions[i].superlative + ' kiss I ever saw.';
+          adverbExample = 'Harold ate the jello <span className="example-word">' + Exceptions[i].adverb + '</span>.';
+          comparativeExample = 'Staci is way <span className="example-word">' + Exceptions[i].comparative + '</span> than Tiffani.';
+          superlativeExample = 'It was the <span className="example-word">' + Exceptions[i].superlative + '</span> kiss I ever saw.';
 
           if (Exceptions[i].adverb === '') {
             adverbExample = '';
