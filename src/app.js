@@ -1,136 +1,112 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
+import Input from './input';
 import Grid from './grid';
-import Exceptions from './exceptions.json';
+import Hints from './hints';
+import exceptions from './exceptions.json';
 import adverbConjugate from './adverb';
 import comSupConjugate from './comparative-superlative';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+const App = () => {
 
-    this.initialState = {
-      adjective: '',
-      syllables: '1',
-      adverb: '',
-      adverbMethod: '',
-      adverbExample: '',
-      comparative: '',
-      comparativeMethod: '',
-      comparativeExample: '',
-      superlative: '',
-      superlativeMethod: '',
-      superlativeExample: ''
-    };
+    const [input, setInput] = useState('');
+    const [syllables, setSyllables] = useState(1);
+    const [adverb, setAdverb] = useState('');
+    const [adverbMethod, setAdverbMethod] = useState('');
+    const [adverbExample, setAdverbExample] = useState('');
+    const [comparative, setComparative] = useState('');
+    const [comparativeMethod, setComparativeMethod] = useState('');
+    const [comparativeExample, setComparativeExample] = useState('');
+    const [superlative, setSuperlative] = useState('');
+    const [superlativeMethod, setSuperlativeMethod] = useState('');
+    const [superlativeExample, setSuperlativeExample] = useState('');
 
-    this.state = this.initialState;
-  }
+    // Handle input & syllable change
+    useEffect(() => {
 
-  handleConversion = inputData => {
-    const value = inputData.adjective;
-    const syllables = inputData.syllables;
-    let adverb, adverbMethod, adverbExample, comparative, comparativeMethod, comparativeExample, superlative, superlativeMethod, superlativeExample;
+        // check for exceptions
+        const exception = exceptions.find(exception => input === exception.adjective);
 
-    // no input
-    if (value === '') {
-      this.setState({
-        adjective: '',
-        adverb: '',
-        adverbMethod: '',
-        adverbExample: '',
-        comparative: '',
-        comparativeMethod: '',
-        comparativeExample: '',
-        superlative: '',
-        superlativeMethod: '',
-        superlativeExample: ''
-      });
-      return;
-    } else {
+        // If exception found, populate with special rules
+        if (exception) {
+            
+            exception.adverb !== '' ?
+                setAdverbExample(`Harold ate the jello ${exception.adverb}.`) :
+                setAdverbExample('');
+            
+            if (exception.comparative === '') {
+                setComparativeExample('');
+                setSuperlativeExample('');
+            } else {
+                setComparativeExample(`Staci is way ${exception.comparative} than Tiffani.`);
+                setSuperlativeExample(`It was the ' ${exception.superlative} kiss I ever saw.`);
+            }
 
-      // check for exceptions
-      for(var i in Exceptions) {
-        if (value === Exceptions[i].adjective) {
-          adverbExample = 'Harold ate the jello ' + Exceptions[i].adverb + '.';
-          comparativeExample = 'Staci is way ' + Exceptions[i].comparative + ' than Tiffani.';
-          superlativeExample = 'It was the ' + Exceptions[i].superlative + ' kiss I ever saw.';
+            setAdverb(exception.adverb);
+            setAdverbMethod(exception.adverb_method);
+            setComparative(exception.comparative);
+            setComparativeMethod(exception.comparative_method);
+            setSuperlative(exception.superlative);
+            setSuperlativeMethod(exception.superlative_method);
+        
+        // Else use normal rules
+        } else {
 
-          if (Exceptions[i].adverb === '') {
-            adverbExample = '';
-          }
-
-          if (Exceptions[i].comparative === '') {
-            comparativeExample = '';
-            superlativeExample = '';
-          }
-
-          // set state and exit loop
-          this.setState({
-            adjective: value,
-            adverb: Exceptions[i].adverb,
-            adverbMethod: Exceptions[i].adverb_method,
-            adverbExample: adverbExample,
-            comparative: Exceptions[i].comparative,
-            comparativeMethod: Exceptions[i].comparative_method,
-            comparativeExample: comparativeExample,
-            superlative: Exceptions[i].superlative,
-            superlativeMethod: Exceptions[i].superlative_method,
-            superlativeExample: superlativeExample
-          });
-          return;
+            // Set asdverb
+            let adverbValues = adverbConjugate(input, syllables);
+    
+            setAdverb(adverbValues[0]);
+            setAdverbMethod(adverbValues[1]);
+            setAdverbExample(adverbValues[2]);
+            
+            // Set comparative & superlative
+            let compSupValues = comSupConjugate(input, syllables);
+    
+            setComparative(compSupValues[0]);
+            setComparativeMethod(compSupValues[1]);
+            setComparativeExample(compSupValues[2]);
+            setSuperlative(compSupValues[3]);
+            setSuperlativeMethod(compSupValues[4]);
+            setSuperlativeExample(compSupValues[5]);
         }
-      }
 
-      let adverbValues = adverbConjugate(value, syllables, adverb, adverbMethod, adverbExample);
-
-      adverb = adverbValues[0];
-      adverbMethod = adverbValues[1];
-      adverbExample = adverbValues[2];
-
-      //comparativeExample = 'Staci is way ' + comparative + ' than Brad.';
-      let compSupValues = comSupConjugate(value, syllables, adverb, comparative, comparativeMethod, comparativeExample, superlative, superlativeMethod, superlativeExample);
-
-      comparative = compSupValues[0];
-      comparativeMethod = compSupValues[1];
-      comparativeExample = compSupValues[2];
-      superlative = compSupValues[3];
-      superlativeMethod = compSupValues[4];
-      superlativeExample = compSupValues[5];
-    }
-
-    this.setState({
-      adjective: value,
-      adverb: adverb,
-      adverbMethod: adverbMethod,
-      adverbExample: adverbExample,
-      comparative: comparative,
-      comparativeMethod: comparativeMethod,
-      comparativeExample: comparativeExample,
-      superlative: superlative,
-      superlativeMethod: superlativeMethod,
-      superlativeExample: superlativeExample
-    });
-  }
-
-  render() {
-    const { adverb, adverbMethod, adverbExample, comparative, comparativeMethod, comparativeExample, superlative, superlativeMethod, superlativeExample } = this.state;
+    }, [input, syllables]);
 
     return (
-      <div class='app-container'>
-        <Grid
-          handleConversion={this.handleConversion}
-          adverb={adverb}
-          adverbMethod={adverbMethod}
-          adverbExample={adverbExample}
-          comparative={comparative}
-          comparativeMethod={comparativeMethod}
-          comparativeExample={comparativeExample}
-          superlative={superlative}
-          superlativeMethod={superlativeMethod}
-          superlativeExample={superlativeExample}
-        />
-      </div>
+        <>
+            <div className='container'>
+                <div className='title'>
+                    <h1>Adjective Conjugator</h1>
+                    <p>A tool to conjugate English adjectives into their adverb, comparative and superlative forms.</p>
+                </div>
+                <Input 
+                    input={input}
+                    setInput={setInput}
+                    syllables={syllables}
+                    setSyllables={setSyllables}
+                />
+                {input !== "" && 
+                <Grid
+                    adverb={adverb}
+                    adverbMethod={adverbMethod}
+                    adverbExample={adverbExample}
+                    comparative={comparative}
+                    comparativeMethod={comparativeMethod}
+                    comparativeExample={comparativeExample}
+                    superlative={superlative}
+                    superlativeMethod={superlativeMethod}
+                    superlativeExample={superlativeExample}
+                />}
+                <Hints 
+                    input={input}
+                    setInput={setInput} 
+                    setSyllables={setSyllables}
+                />
+            </div>
+            <div className="footer">
+                <p><a href="https://mrplunkett.com">mrplunkett.com</a></p>
+            </div>
+        </>
     );
-  }
 }
 
 export default App;

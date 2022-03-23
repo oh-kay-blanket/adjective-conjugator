@@ -1,5 +1,5 @@
-function adverbConjugate(value, syllables, adverb, adverbMethod, adverbExample) {
-
+function adverbConjugate(value) {
+  let adverb, adverbMethod, adverbExample;
   // ADVERB
 
   // 'y' ending

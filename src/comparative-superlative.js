@@ -1,8 +1,10 @@
-function comSupConjugate(value, syllables, adverb, comparative, comparativeMethod, comparativeExample, superlative, superlativeMethod, superlativeExample) {
+function comSupConjugate(value, syllables) {
+
+  let comparative, comparativeMethod, comparativeExample, superlative, superlativeMethod, superlativeExample;
   // COMPARATIVE & SUPERLATIVE
 
   // One syllable
-  if (syllables === '1') {
+  if (syllables === 1) {
 
     // Ends in vowell
     if (['a','e','i','o','u'].includes(value.slice(-1))) {
@@ -40,7 +42,7 @@ function comSupConjugate(value, syllables, adverb, comparative, comparativeMetho
     }
 
   // Two syllable
-  } else if (syllables === '2') {
+  } else if (syllables === 2) {
 
     // Ends in 'y'
     if (value.slice(-1) === 'y') {
@@ -73,7 +75,7 @@ function comSupConjugate(value, syllables, adverb, comparative, comparativeMetho
 
 
   // Three+ syllable
-  } else if (syllables === '3') {
+  } else if (syllables === 3) {
     comparative = 'more ' + value;
     comparativeMethod = `'more' + adjective. Standard three syllable adjective.`;
     superlative = 'most ' + value;
