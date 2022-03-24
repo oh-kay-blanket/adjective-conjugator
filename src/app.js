@@ -30,15 +30,15 @@ const App = () => {
         if (exception) {
             
             exception.adverb !== '' ?
-                setAdverbExample(`Harold ate the jello ${exception.adverb}.`) :
+                setAdverbExample(`Harold ate the jello <u>${exception.adverb}</u>.`) :
                 setAdverbExample('');
             
             if (exception.comparative === '') {
                 setComparativeExample('');
                 setSuperlativeExample('');
             } else {
-                setComparativeExample(`Staci is way ${exception.comparative} than Tiffani.`);
-                setSuperlativeExample(`It was the ' ${exception.superlative} kiss I ever saw.`);
+                setComparativeExample(`Staci is way <u>${exception.comparative}</u> than Tiffani.`);
+                setSuperlativeExample(`It was the <u>${exception.superlative}</u> kiss I ever saw.`);
             }
 
             setAdverb(exception.adverb);

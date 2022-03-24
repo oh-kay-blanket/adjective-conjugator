@@ -163,8 +163,8 @@
     },
     {
         "adjective": "big",
-        "adverb": "",
-        "adverb_method": "None",
+        "adverb": "big",
+        "adverb_method": "No change",
         "comparative": "bigger",
         "comparative_method": "Adjective + 'er'. One syllable adjective.",
         "superlative": "biggest",

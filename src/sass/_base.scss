@@ -1,0 +1,53 @@
+@use './abstracts/media' as *;
+@use './abstracts/variables' as *;
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat:800|Roboto:ital,wght@0,100;0,200;0,500;0,600;0,700;0,800;1,100;1,500;1,700;);
+
+html {
+    font-family: 'Roboto', "Open Sans", sans-serif;
+    color: $text;
+}
+
+body {
+    background-color: $bg;
+}
+
+#root {
+    position: relative;
+    min-height: 90vh;
+    padding-bottom: 5vh;
+}
+
+h1, h2 {
+    font-family: 'Montserrat', "Open Sans", sans-serif;
+}
+
+
+@include desktop (medium) {
+    h1 {
+        font-size: 2em;
+    }
+}
+
+p {
+    margin: .5em 0;
+}
+
+a {
+    color: $link;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    
+    padding: 0px 5vw;
+}
+
+@include desktop(medium) {
+    .container {
+        padding: 4vh 10vw;
+        /* max-width: 900px; */
+    }
+}

@@ -82,8 +82,8 @@ function comSupConjugate(value, syllables) {
     superlativeMethod = `'most' + adjective. Standard three syllable adjective.`;
   }
 
-  comparativeExample = 'Staci is way ' + comparative + ' than Tiffani.';
-  superlativeExample = 'It was the ' + superlative + ' kiss I ever saw.';
+  comparativeExample = `Staci is way <u>${comparative}</u> than Tiffani.`;
+  superlativeExample = `It was the <u>${superlative}</u> kiss I ever saw.`;
 
   return [comparative, comparativeMethod, comparativeExample, superlative, superlativeMethod, superlativeExample];
 }

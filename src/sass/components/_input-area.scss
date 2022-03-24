@@ -1,0 +1,29 @@
+@use './abstracts/variables' as *;
+
+.input-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 3% 0;
+}
+
+input {
+    font-size: 1em;
+    width: 400px;
+    max-width: 100%;
+    background: none;
+    margin-right: 20px;
+    padding: .5em 1em;
+    background-color: #fff;
+    border-radius: 30px;
+    border: 1px solid $border;
+}
+
+select {
+    margin: .25em;
+    padding: .5em 1em;
+    background-color: #fff;
+    border-radius: 30px;
+    border: 1px solid $border;
+}

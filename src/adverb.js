@@ -24,7 +24,7 @@ function adverbConjugate(value) {
     adverbMethod = `Adjective + 'ly'.`;
   }
 
-  adverbExample = 'Harold ate the jello ' + adverb + '.';
+  adverbExample = `Harold ate the jello <u>${adverb}</u>.`;
 
   return [adverb, adverbMethod, adverbExample];
 }

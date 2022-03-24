@@ -1,0 +1,55 @@
+@use './abstracts/media' as *;
+@use './abstracts/variables' as *;
+
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 4% 0;
+}
+
+.grid__tile {
+    width: 100%;
+    margin: .5em 1%;
+}
+
+@include desktop(medium) {
+    .grid__tile {
+        width: 30%;
+    }
+}
+
+.grid__tile__type {
+    text-transform: uppercase;
+    color: #888;
+    font-size: .8rem;
+    letter-spacing: 1.2px;
+    margin: .5em;
+}
+
+.grid__tile__title {
+    letter-spacing: 1.1px;
+    margin: 0 0 .25em;
+}
+
+.grid__tile__box {
+    padding: .5em;
+    background-color: #fff;
+    /* box-shadow: -5px -5px 15px rgba(204, 180, 180, 0.4); */
+    border: 2px solid $border;
+    border-radius: 10px;
+    // box-shadow: 1px 1px 0 #000, 2px 2px 0 #000, 3px 3px 0 #000;
+
+    @include desktop {
+        padding: 1em;
+    }
+}
+
+.example {
+    font-style: italic;
+    color: #666;
+}
+
+.example-word {
+    text-decoration: underline;
+}

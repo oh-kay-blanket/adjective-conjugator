@@ -35,7 +35,7 @@ const GridBox = ({ title, content, conversionMethod, example }) => {
             <div className='grid__tile__box'>
                 <h4 className="grid__tile__title">{content}</h4>
                 <p>{conversionMethod}</p>
-                <p className="example">{example}</p>
+                <p className="example" dangerouslySetInnerHTML={{__html: example}}></p>
             </div>
         </div>
     );
