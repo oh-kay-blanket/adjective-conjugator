@@ -18,6 +18,12 @@ input {
     background-color: #fff;
     border-radius: 30px;
     border: 1px solid $border;
+
+    &:focus {
+        outline: 1px solid $link;
+        // border: 1px solid $link;
+        box-shadow: 0 0 10px $link;
+      }
 }
 
 select {
@@ -26,4 +32,10 @@ select {
     background-color: #fff;
     border-radius: 30px;
     border: 1px solid $border;
+
+    &:focus {
+        outline: 1px solid $link;
+        // border: 1px solid $link;
+        box-shadow: 0 0 10px $link;
+      }
 }

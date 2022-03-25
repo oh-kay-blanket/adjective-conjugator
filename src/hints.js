@@ -4,8 +4,8 @@ const Hints = ({ input, setInput, setSyllables }) => {
     return (
         <div className='hints'>
             {input == "" ? 
-                <p className="hints__title">Not sure where to start? Pick an adjective</p> :
-                <p className="hints__title">Pick an adjective</p>
+                <h4 className="hints__title">Not sure where to start? Pick an adjective</h4> :
+                <h4 className="hints__title">Pick an adjective</h4>
             }
             <ul>
                 <li onClick={() => {setInput("grand"); setSyllables(1);}}>grand</li>

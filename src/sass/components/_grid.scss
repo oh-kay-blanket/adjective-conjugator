@@ -21,7 +21,7 @@
 
 .grid__tile__type {
     text-transform: uppercase;
-    color: #888;
+    color: $link;
     font-size: .8rem;
     letter-spacing: 1.2px;
     margin: .5em;
@@ -36,7 +36,7 @@
     padding: .5em;
     background-color: #fff;
     /* box-shadow: -5px -5px 15px rgba(204, 180, 180, 0.4); */
-    border: 2px solid $border;
+    border: 1px solid $border;
     border-radius: 10px;
     // box-shadow: 1px 1px 0 #000, 2px 2px 0 #000, 3px 3px 0 #000;
 

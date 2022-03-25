@@ -76,7 +76,7 @@ const App = () => {
             <div className='container'>
                 <div className='title'>
                     <h1>Adjective Conjugator</h1>
-                    <p>A tool to conjugate English adjectives into their adverb, comparative and superlative forms.</p>
+                    <p>A tool to conjugate English adjectives into their adverb, comparative and superlative forms</p>
                 </div>
                 <Input 
                     input={input}
