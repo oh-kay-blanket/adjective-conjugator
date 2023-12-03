@@ -103,7 +103,7 @@ const App = () => {
                 />
             </div>
             <div className="footer">
-                <p><a href="https://mrplunkett.com">mrplunkett.com</a></p>
+                <p><a href="https://ohkayblanket.com">ohkayblanket.com</a></p>
             </div>
         </>
     );
